@@ -1,2 +1,2 @@
 
-Copyright (C) 2024 Jesus David
+Copyright (C) 2024 Jesus David Lozano & Angeles Gutierrez
