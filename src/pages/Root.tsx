@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom"
 import NavBar from "../components/NavBar"
 import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
+import { useEffect, useContext } from "react"
+import { appContext } from "../context/appContext"
 
 const Root = () => {
 
     const navigate = useNavigate()
+    const { logged } = useContext(appContext)
 
     useEffect(() => {
         navigate("/Login")
@@ -13,7 +15,7 @@ const Root = () => {
 
     return(
         <div className="Root">
-            <NavBar />
+            {logged && <NavBar />}
             <Outlet />
         </div>
     )

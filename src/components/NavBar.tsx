@@ -6,7 +6,7 @@ import ConfigPanel from './ConfigPanel'
 import { navBarIconStyle } from '../AntDIconStyles'
 import { Modal, Tooltip } from 'antd'
 import { appContext } from '../context/appContext'
-import { logOut } from '../client/ClientePrueba'
+// import { logOut } from '../client/ClientePrueba'
 
 const NavBar = () => {
 
@@ -35,7 +35,7 @@ const NavBar = () => {
         }
     }
     const logout = () => {
-        logOut()
+        // logOut()
         setUserData(null)
         navigate('/Login')
         setLogged(false)
@@ -52,16 +52,9 @@ const NavBar = () => {
                     <Tooltip title='Notificaciones'>
                         <BellOutlined onClick={openNotif} style={navBarIconStyle}/>
                     </Tooltip>
-                    { location.pathname == '/SubServerSearch' ? (
-                        <Tooltip title='Dashboard'>
-                            <BarsOutlined onClick={() => switchSubServerPages()} style={navBarIconStyle}/>
-                        </Tooltip>
-                        ):(
-                            <Tooltip title='Sub servers'>
-                                <BarsOutlined onClick={() => switchSubServerPages()} style={navBarIconStyle}/>
-                            </Tooltip>
-                        )
-                    }
+                    <Tooltip title='Inicio'>
+                        <BarsOutlined onClick={() => navigate("/home")} style={navBarIconStyle}/>
+                    </Tooltip>
                     <Tooltip title='Cerrar Sesion'>
                         <LogoutOutlined onClick={() => setLogoutModal(true)} style={navBarIconStyle}/>
                     </Tooltip>

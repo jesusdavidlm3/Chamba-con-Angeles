@@ -15,47 +15,52 @@ const Login = () => {
     const [loading, setLoading] = useState(false)
     
 
-    const onSubmit = async () => {
-        setLoading(true)
-        let user = document.getElementById('User').value
-        let password = document.getElementById('Password').value
+    // const onSubmit = async () => {
+    //     setLoading(true)
+    //     let user = document.getElementById('User').value
+    //     let password = document.getElementById('Password').value
 
-        const data = {
-            identifier: user,
-            passwordSHA256: (await encrypt(password)).toUpperCase(),
-        }
-        // console.log(data)
-        let res = await login(data)
-        // console.log(res)
-        if(res.status == 200){
-            setLogged(true)
-            setUserData(res.data)
-            navigate('/Dashboard')
-        }else if(res.status == 403){
-            setLoading(false)
-            messageApi.open({
-                type: "error",
-                content: 'Credenciales invalidas'
-            })
-        }else if(res.status == 401){
-            setLoading(false)
-            messageApi.open({
-                type: "error",
-                content: 'Contraseña invalida'
-            })
-        }else if(res.status == 500){
-            setLoading(false)
-            messageApi.open({
-                type: "error",
-                content: 'Error del servidor'
-            })
-        }else{
-            setLoading(false)
-            messageApi.open({
-                type: 'error',
-                content: 'Se volvio a apagar la base de datos ._.'
-            })
-        }
+    //     const data = {
+    //         identifier: user,
+    //         passwordSHA256: (await encrypt(password)).toUpperCase(),
+    //     }
+    //     // console.log(data)
+    //     let res = await login(data)
+    //     // console.log(res)
+    //     if(res.status == 200){
+    //         setLogged(true)
+    //         setUserData(res.data)
+    //         navigate('/Dashboard')
+    //     }else if(res.status == 403){
+    //         setLoading(false)
+    //         messageApi.open({
+    //             type: "error",
+    //             content: 'Credenciales invalidas'
+    //         })
+    //     }else if(res.status == 401){
+    //         setLoading(false)
+    //         messageApi.open({
+    //             type: "error",
+    //             content: 'Contraseña invalida'
+    //         })
+    //     }else if(res.status == 500){
+    //         setLoading(false)
+    //         messageApi.open({
+    //             type: "error",
+    //             content: 'Error del servidor'
+    //         })
+    //     }else{
+    //         setLoading(false)
+    //         messageApi.open({
+    //             type: 'error',
+    //             content: 'Se volvio a apagar la base de datos ._.'
+    //         })
+    //     }
+    // }
+
+    const onSubmit = () => {
+        setLogged(true)
+        navigate("/home")
     }
 
     return(

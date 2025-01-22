@@ -6,6 +6,7 @@ import Root from './pages/Root'
 import ErrorPage from './pages/ErrorPage'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import Profile from './pages/Profile'
 
   const router = createBrowserRouter([{
     path: "/",
@@ -17,6 +18,9 @@ import Login from './pages/Login'
     },{
       path: "home",
       element: <Home />
+    },{
+      path: "/Profile",
+      element: <Profile />
     }]
   }])
 
