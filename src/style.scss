@@ -29,6 +29,19 @@ body{
     font-style: normal;
 }
 
+@mixin Button{
+    color: white;
+    background-color: var(--highlightColor);
+    font-weight: 600;
+    box-shadow: 0px 0px 5px 5px var(--shadowsColor);
+
+    &:hover{
+        background-color: rgb(233, 92, 255);
+        color: white;
+        box-shadow: 0px 0px 5px 5px rgba(233, 92, 255, 0.2);
+    }
+}
+
 @mixin fullScreen{
     margin: 0px;
     width: 100vw;
@@ -131,7 +144,7 @@ body{
     }
 }
 
-.NotifPanel, .ConfigPanel, .DispPanel, .ReactPanel{@include panels;}
+.NotifPanel, .ConfigPanel{@include panels;}
 
 .NotifPanel{
     scrollbar-width: none;
@@ -268,95 +281,6 @@ body{
     }
 }
 
-.DispPanel{
-    scrollbar-width: none;
-    display: flex;
-    flex-direction: column;
-
-    .bar{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        color: var(--notifPanelColorLetter);
-        margin-bottom: 10px;
-    }
-
-    .Buttons{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-
-        .Button{
-            box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-            display: flex;
-            color: var(--notifPanelColorLetter);
-            border-radius: 15px;
-            padding: 10px 15px;
-            gap: 15px;
-
-            &:hover{
-                cursor: pointer;
-            }
-
-            div{
-                h4{margin: 0px} 
-                p{font-size: 12px; font-weight: 300 ;margin: 0px; word-break: break-all;}
-                .hex{
-                    font-size: 8px;
-                }
-            }
-        }
-    }
-}
-
-.ReactPanel{
-    scrollbar-width: none;
-    display: flex;
-    flex-direction: column;
-
-    .bar{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        color: var(--notifPanelColorLetter);
-        margin-bottom: 10px;
-    }
-
-    .Empty{
-        align-items: center;
-        justify-content: center;
-        
-        p{color: var(--notifPanelColorLetter); font-size: 20px; text-align: center;}
-
-    }
-
-    .Buttons{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-
-        .Button{
-            box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-            display: flex;
-            color: var(--notifPanelColorLetter);
-            border-radius: 15px;
-            padding: 10px 15px;
-            gap: 15px;
-
-            &:hover{
-                cursor: pointer;
-            }
-
-            div{
-                h4{margin: 0px} 
-                p{font-size: 12px; font-weight: 300 ;margin: 0px;}
-            }
-        }
-    }
-}
-
 .LoginPage{
     width: 100vw;
     height: 100vh;
@@ -409,60 +333,7 @@ body{
         }
 
         .logInButton{
-            color: white;
-            background-color: var(--highlightColor);
-            font-weight: 600;
-            box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-        }
-        .logInButton:hover{
-            background-color: rgb(233, 92, 255);
-            color: white;
-            box-shadow: 0px 0px 5px 5px rgba(233, 92, 255, 0.2);
-        }
-    }
-}
-
-.Dashboard{
-    @include pages;
-    .title{
-        color:var(--notifPanelColorLetter)
-    }
-
-    .Container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap:10px;
-        color: var(--notifPanelColorLetter);
-        
-        .texto{
-            display: flex;
-        }
-
-        .bucleItem{
-            background-color: var(--moduleBgColor);
-            height: fit-content;
-            width: 80vh;
-            border-radius: 20px;
-            box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-            padding: 20px;
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-
-            h3{font-weight: 600; font-size: 20px; margin:0px; color:#e95cff}
-            h4{font-weight: 400; margin:0}
-            h5{font-weight: 300; margin:0; color: #01bc85}
-
-            .left{
-                width: 70px;
-                height: 70px;
-                background-color: var(--newColor);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+            @include Button;
         }
     }
 }
@@ -701,248 +572,6 @@ body{
         }
     }
 }
-
-.moduleCreation{
-    height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    .creationForm{
-        background-color: var(--moduleBgColor);
-        width: 70vw;
-        height: 75vh;
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: var(--highlightColor);
-        box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-        overflow-y: scroll;
-        scrollbar-width: none;
-
-        .upperBar{
-            height:4vh;
-            width: 80%;
-            display: flex;
-            gap: 5vw;
-            align-items: center;
-            justify-content: space-between;
-            padding:15px 0px;
-
-            h1{
-                margin: 0px;
-            }
-
-            Button{
-                background-color: rgb(17, 17, 28);
-                border: none;
-            }
-            
-        }
-
-        .upperBar2{
-            height:4vh;
-            width: 80%;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            align-items: center;
-            justify-content: center;
-            padding:15px 0px;
-
-            h1{
-                margin: 0px;
-            }
-
-            Button{
-                background-color: rgb(17, 17, 28);
-                border: none;
-            }
-            
-        }
-
-        .form{
-            height: 70vh;
-            width: 80%;
-            overflow-y: scroll;
-            scrollbar-width: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        
-            padding-top: 20px;
-            padding-bottom:5px ;
-        
-
-            .ant-form-item{
-                margin:0px;
-            }
-    
-            .labels .ant-form-item-label > label{
-                color: var(--urgentColor);
-                font-weight: 300;
-                
-            }
-
-            
-            Input{
-                width: 45vw;
-                height: 30px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                background-color: var(--searchBarColor);
-                color: var(--urgentColor);
-            }
-            Input::placeholder{
-                color: var(--urgentColor);
-                font-weight: 300;
-            }
-    
-            .password{
-                width: 45vw;
-                height: 30px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                background-color: var(--searchBarColor);
-            }
-    
-            .formButton{
-                color: white;
-                background-color: var(--highlightColor);
-                font-weight: 600;
-                box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-                margin: 10px 0px;
-            }
-            .formButton:hover{
-                background-color: rgb(233, 92, 255);
-                color: white;
-                box-shadow: 0px 0px 5px 5px rgba(233, 92, 255, 0.2);
-            }
-    
-            .item{
-                display: flex;        
-                align-items: center;
-                gap:10px;
-                color: var(--notifPanelColorLetter);
-                font-size: 13px;
-            }
-
-        }
-        
-
-        
-    }
-}
-
-.SubServer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    .section1{
-        color: var(--notifPanelColorLetter);
-        
-        h1{ font-weight: 500; font-size: 30px;}
-
-        .bar{
-            display: flex;
-        }
-
-        .Buttons{
-            display: flex;
-            align-items: space-between;
-            gap: 40px;
-
-            .Button1, .Button2, .Button3{
-                background-color: var(--moduleBgColor);
-                width: 25vw;
-                height: 90px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                gap: 15px;
-                border-radius: 15px;
-                box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-
-                &:hover{cursor: pointer;}
-            }
-
-            .Button1, .Button3{color: var(--notifPanelColorLetter);}
-
-            .Button2{color: var(--highlightColor)}
-        }
-    }
-
-    .section4{
-        display: flex;
-        flex-direction: column;
-        width: 90vw;
-        color: var(--notifPanelColorLetter);
-        
-        h1{ font-weight: 500; font-size: 30px;}
-
-        .bar{
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            gap: 50vw;
-        
-            Input{
-                background-color: var(--searchBarColor);
-                box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-                color: var(--notifPanelColorLetter);
-
-                &::placeholder{
-                    color: var(--placeholderColor);
-                }
-            }
-        }
-
-        .reportsContainer{
-            
-            .info{
-                width: 88vw;
-                display: grid;
-                grid-template-columns: 0.9fr 0.5fr 1.2fr 1.1fr 0.5fr 1fr;
-                justify-content: center;
-                justify-items: center;
-                margin-left: 50px;
-               // margin-right: 10px;
-
-                h4{margin:10px -2px;}
-                .dateTime{
-                    width: 100%;
-                    display: flex;
-                    gap: 10px;
-                    align-items: center;
-                    justify-content: center
-                }
-            }
-
-            .reportItem{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-                border-radius: 15px;
-                padding: 0px 20px;
-
-                h3{font-weight: 500; font-size: 17px;}
-
-                .badge{background: var(--highlightColor); width: 30px; height: 30px; border-radius: 50%}
-            }
-        }
-    }
-}
-
 
 .individualDevice{
     .upperBar{
@@ -1287,136 +916,6 @@ body{
     
 }
 
-.modulePermissions{
-    height: calc(100vh - 80px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    .creationForm{
-        background-color: var(--moduleBgColor);
-        width: 70vw;
-        height: 75vh;
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: var(--highlightColor);
-        box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-
-        .ant-form-item{
-            margin:0px;
-        }
-
-        .upperBar{
-            height:4vh;
-            width: 80%;
-            display: flex;
-            gap: 5vw;
-            align-items: center;
-            justify-content: space-between;
-            margin: 35px 0px;
-    
-            h1{
-                margin: 0px;
-            }
-
-            Button{
-                background-color: rgb(17, 17, 28);
-                border: none;
-            }
-        }
-
-        .permissions{
-            height: 70vh;
-            width: 80%;
-            overflow-y: scroll;
-            scrollbar-width: none;
-            display: flex;
-            flex-direction: column;
-            
-            
-
-            .item{
-                display: flex;        
-                align-items: center;
-                justify-content: space-between;
-                gap:10px;
-                color: var(--notifPanelColorLetter);
-                font-size: 13px;
-
-                label{
-                    color: var(--notifPanelColorLetter);
-                    font-size: 13px;
-                }
-            }
-        }
-    }
-}
-
-.periphericCreation{
-    height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--notifPanelColorLetter);
-    
-    .formContainer{
-        background-color: var(--moduleBgColor);
-        width: 70vw;
-        height: 70vh;
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-        color: var(--highlightColor);
-        box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-        overflow-y: scroll;
-        scrollbar-width: none;
-        padding: 20px;
-        
-        .upperBar2{
-            height:4vh;
-            width: 80%;
-            display: flex;
-            gap: 20vw;
-            align-items: center;
-            //justify-content: space-between;
-            padding-bottom:50px;
-    
-            h1{
-                margin: 0px;
-            }
-    
-            Button{
-                background-color: rgb(17, 17, 28);
-                border: none;
-            }   
-        }
-
-        .form{
-            align-items: center;
-            justify-content: center;
-            
-
-            Button{
-                color: white;
-                background-color: var(--highlightColor);
-                font-weight: 600;
-                box-shadow: 0px 0px 5px 5px var(--shadowsColor);
-                margin: 10px 0px;
-            }
-            Button:hover{
-                background-color: rgb(233, 92, 255);
-                color: white;
-                box-shadow: 0px 0px 5px 5px rgba(233, 92, 255, 0.2);
-            }
-        }
-    }
-}
-
-
 .SubServerSessions{
     display: flex;
     flex-direction: column;
@@ -1452,5 +951,34 @@ body{
             .approve{color: var(--urgentColor); font-weight: 600; font-size: 16px;}
             .rejected{color: var(--newColor); font-weight: 600; font-size: 16px;}
         }
+    }
+}
+
+.modalMask{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    .modal{
+        width: 50%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--moduleBgColor);
+        gap: 20px; 
+        border-radius: 15px;
+        padding: 25px;
+
+        h1{color: var(--highlightColor);}
+        .Buttons{display: flex; flex-direction: row; align-items: center; gap: 10px}
+        .Button{@include Button;}
     }
 }

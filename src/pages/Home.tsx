@@ -3,11 +3,13 @@ import { useContext, useEffect, useState } from "react"
 import { DoubleRightOutlined, AppstoreAddOutlined, SlidersOutlined, ExportOutlined, SwapRightOutlined } from "@ant-design/icons"
 import { appContext } from '../context/appContext'
 import { useNavigate } from "react-router-dom"
+import { UploadContractModal as UploadContract } from "../components/UploadContractModal"
 
-const SubServerSearch = () => {
+const SubServerSearch: React.FC = () => {
 
-    const [showList, setShowList] = useState([])
+    const [showList, setShowList] = useState([{name: 'Jesus Lozano', id: '282828'}, {name: 'Angeles Gutierrez', id: '303030'}])
     const navigate = useNavigate()
+    const [uploadContractModal, setUploadContractModal] = useState(false)
 
     // console.log(subServers)
     const slideStyle = {
@@ -22,7 +24,7 @@ const SubServerSearch = () => {
 
     return(
         <div className='SubServerSearch'>
-            <h1 className='title'>Sub Servidores</h1>
+            <h1 className='title'>Clientes</h1>
             {showList.length == 0 ? (
                 <>    
                     <Skeleton active/>
@@ -42,7 +44,7 @@ const SubServerSearch = () => {
                                 <div key={item.id} className="ListItem">
                                     <div className="left">
                                         <SwapRightOutlined/>
-                                        <p>{ item.givenName ? (item.givenName):(item.reportedName) }</p>
+                                        <p>{ `${item.name} (${item.id})` }</p>
                                     </div>
                                     <div className='badge'></div>
                                 </div>
@@ -50,19 +52,27 @@ const SubServerSearch = () => {
                         </div>
                         <div className="BlockList">
                             { showList.map((item) => (
-                                <div key={item.id} className="ListItem" onClick={() => {setCurrentSubServer(item.id); navigate('/SubServer')}}>
+                                <div key={item.id} className="ListItem" onClick={() => setUploadContractModal(true)}>
                                     <div className="banner">
                                         <div className="subServerIcon"><AppstoreAddOutlined style={{color:'#e95cff', fontSize:'45px'}}/></div>
                                         <div><DoubleRightOutlined rotate={315}/></div>
                                     </div>
                                     <div className='Info'>
-                                        <h3>{ item.givenName ? (item.givenName):(item.reportedName) }</h3>
-                                        <h5>Last heart beat: {Date(item.lastHeartbeat)}</h5>
+                                        <h3>Nombre: {item.name}</h3>
+                                        <h5>Cedula: {item.id}</h5>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                    </div>      
+
+                        <UploadContract
+                        client="Jesus Lozano"
+                        onCancel={() => setUploadContractModal(false)}
+                        open={uploadContractModal}
+                        />
+                    </div>   
+
+                    
                 </>
             )}
         </div>

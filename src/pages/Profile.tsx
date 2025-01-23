@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Profile = () => {
 
-    const {userData, setUserData, subServers, subServerReports, setCurrentSubServer} = useContext(appContext)
+    const {userData, setUserData} = useContext(appContext)
     const navigate = useNavigate()
 
     const dividerStyle = {
@@ -21,7 +21,7 @@ const Profile = () => {
 
     return(
         <div className='Profile'>
-            { userData == null && subServerReports == null && subServers == null ? (
+            { false ? (
                 <>
                     <Skeleton active/>
                     <Skeleton active/>
@@ -30,21 +30,21 @@ const Profile = () => {
                 <>
                     <div className='bar'>
                         <h1 className='titles'>Bienvenido</h1>
-                        <h1 className='titles'>{userData.realName}</h1>
+                        <h1 className='titles'>Jesus Lozano</h1>
                     </div>
                     <div className='card'>
                         <div className='settingBar'><SettingOutlined style={buttonPanelIconStyle} onClick={() => {navigate ('/editPassword')}}/></div>
                         <div className='picContainer'>
-                            { userData.img == null ? (
+                            {/* { userData.img == null ? (
                                 <UserOutlined style={{fontSize: '225px', color: '#6f8fc2'}}/>
-                            ):(
+                            ):( */}
                                 <img />
-                            )  }
+                            {/* // )  } */}
                             
                         </div>
-                        <h2>{userData.realName}</h2>
+                        <h2>Jesus Lozano</h2>
                         <Divider dashed style={dividerStyle}/>
-                        <h2>{userData.email}</h2>
+                        <h2>jesus@correo.com</h2>
                         <Divider dashed style={dividerStyle}/>
                         
                     </div>
@@ -70,9 +70,9 @@ const Profile = () => {
                     </div> */}
 
                     <div className='SubServersSection'>
-                        <h1 className='title'>Sub servidores</h1>
+                        <h1 className='title'>Reportes por agencia</h1>
                         <div className='subServerContainer'>
-                            { subServers.map((item) => (
+                            {/* { subServers.map((item) => (
                                 <div className='itemSubServer' key={item.id} onClick={() => {setCurrentSubServer(item.id); navigate('/SubServer')}}>
                                     <h3>{item.name}</h3>
                                     <h4>{item.id}</h4>
@@ -81,7 +81,7 @@ const Profile = () => {
                                         {new Date(item.lastHeartbeat).getDate()}/{new Date(item.lastHeartbeat).getMonth()}/{new Date(item.lastHeartbeat).getFullYear()} {new Date(item.lastHeartbeat).getHours()}:{new Date(item.lastHeartbeat).getMinutes()}
                                     </h3>
                                 </div>
-                            )) }
+                            )) } */}
                         </div>
                     </div>
                 </>
