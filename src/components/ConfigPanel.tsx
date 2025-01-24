@@ -1,13 +1,25 @@
-import { UserOutlined, MobileOutlined, BellOutlined, AppstoreAddOutlined, SettingOutlined, CloseOutlined } from "@ant-design/icons"
+import { UserOutlined, MobileOutlined, AppstoreAddOutlined, SettingOutlined, CloseOutlined } from "@ant-design/icons"
 import { useNavigate } from "react-router-dom"
 import { barPanelIconStyles, buttonPanelIconStyle } from '../AntDIconStyles'
+import { motion, AnimatePresence } from 'motion/react'
 
-const ConfigPanel = ({close}) => {
+interface Panel{
+    close: () => void,
+    open: boolean
+}
+
+const ConfigPanel: React.FC<Panel> = ({close, open}) => {
 
     const navigate = useNavigate()
 
     return(
-        <div className="ConfigPanel ">
+        <AnimatePresence>
+        {open && <motion.div className="ConfigPanel"
+            initial={{scaleY: 0, y: -350}}
+            transition={{duration: .25}}
+            animate={{scaleY: 1, y: 0}}
+            exit={{scaleY: 0, y: 350}}
+        >
             <div className="InsidePanel">
                 <div className='bar'>
                     <div>
@@ -55,7 +67,8 @@ const ConfigPanel = ({close}) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>}
+        </AnimatePresence>
     )
 }
 

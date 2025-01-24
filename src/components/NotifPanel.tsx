@@ -3,8 +3,14 @@ import { Button, notification, Skeleton } from 'antd'
 import { aproveSubServerSession } from '../client/ClientePrueba'
 import { useContext, useEffect, useState } from 'react'
 import { appContext } from '../context/appContext'
+import { motion, AnimatePresence } from 'motion/react'
 
-const NotifPanel = ({close}) => {
+interface Panel{
+    close: () => void,
+    open: boolean
+}
+
+const NotifPanel: React.FC<Panel> = ({close, open}) => {
 
     const iconStyle = {
         color: '#6f8fc2',
@@ -85,7 +91,14 @@ const NotifPanel = ({close}) => {
     }
 
     return(
-        <div className="NotifPanel">
+        <AnimatePresence>
+        {open && <motion.div
+            className="NotifPanel"
+            initial={{scaleY: 0, y: -350}}
+            transition={{duration: .25}}
+            animate={{scaleY: 1, y: 0}}
+            exit={{scaleY: 0, y: 350}}
+        >
             <div className="InsidePanel">
                 <div className='bar'>
                     <div>
@@ -128,7 +141,8 @@ const NotifPanel = ({close}) => {
                     {notifMessage && <h3 style={{color: '#6f8fc2', textAlign: 'center'}}>{notifMessage}</h3>}
                 </div>)}
             </div>
-        </div>    
+        </motion.div>} 
+        </AnimatePresence>
     )
 }
 

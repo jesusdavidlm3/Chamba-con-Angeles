@@ -61,8 +61,8 @@ const NavBar = () => {
                 </div>
             </div>
 
-            { notifPanelOpen && <NotifPanel close={() => setNotifPanelOpen(false)}/> }
-            { configPanelOpen && <ConfigPanel close={() => setConfigPanelOpen(false)}/> }
+            <NotifPanel close={() => setNotifPanelOpen(false)} open={notifPanelOpen}/>
+            <ConfigPanel close={() => setConfigPanelOpen(false)} open={configPanelOpen}/>
             <Modal title='Cerrar sesion?' onOk={logout} onCancel={() => setLogoutModal(false)} open={logoutModal}></Modal>
         </>
     )

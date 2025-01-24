@@ -1,8 +1,8 @@
-import { Modal, Button, Upload, Select } from "antd";
+import { Button, Upload, Select } from "antd";
 import type { UploadProps } from "antd";
-import { useState } from "react";
 import { PlusCircleOutlined } from "@ant-design/icons"
 import { buttonPanelIconStyle } from "../AntDIconStyles.js"
+import { motion, AnimatePresence } from 'motion/react'
 
 interface uploadContractModal {
     client: string,
@@ -15,9 +15,16 @@ export const UploadContractModal: React.FC<uploadContractModal> = ({client, onCa
     const { Dragger } = Upload
 
     return(
-        <>{ open && 
-            <div className="modalMask" onClick={onCancel}>
-                <div className="modal" onClick={e => e.stopPropagation()}>
+        <AnimatePresence>
+            { open && <div className="modalMask" onClick={onCancel} >
+                <motion.div
+                    className="modal"
+                    onClick={e => e.stopPropagation()}
+                    initial={{scale: 0}}
+                    animate={{scale: 1}}
+                    transition={{duration: .25}}
+                    exit={{scale: 0}}
+                >
                     <h1>Jesus Lozano</h1>
                     <div className="Buttons">
                         <Button className="Button">Boton 1</Button>
@@ -33,8 +40,8 @@ export const UploadContractModal: React.FC<uploadContractModal> = ({client, onCa
                         <PlusCircleOutlined style={buttonPanelIconStyle} />
                     </Dragger>
                     <Button className="Button">Guardar</Button>
-                </div>
-            </div>
-        }</>
+                </motion.div>
+            </div>}
+        </AnimatePresence>
     )
 }
