@@ -97,7 +97,7 @@ const NotifPanel: React.FC<Panel> = ({close, open}) => {
             initial={{scaleY: 0, y: -350}}
             transition={{duration: .25}}
             animate={{scaleY: 1, y: 0}}
-            exit={{scaleY: 0, y: 350}}
+            exit={{scaleY: 0, y: -350}}
         >
             <div className="InsidePanel">
                 <div className='bar'>

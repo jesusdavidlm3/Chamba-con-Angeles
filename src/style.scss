@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root{
+    --darkGreen: #374538;
+    --midGreen: #586e26;
+    --lightGreen: #96ac60;
+    --yellow: #e7e14f;
+    --cream: #fff8f2;
     --bgColor: #16141f;
     --moduleBgColor: #191925;
     --navbarColor: #191825;
     --searchBarColor: #15141f;
-    --highlightColor: #e95cff;
+    --highlightColor: #2b4234;
     --notifPanelColorLetter: #6f8fc2;
     --notifBorder: #1c1c28;
     --fuchsiaShadow: 0px 0px 10px 5px rgba(233, 92, 255, 0.3);
@@ -31,7 +36,7 @@ body{
 
 @mixin Button{
     color: white;
-    background-color: var(--highlightColor);
+    background-color: var(--darkGreen);
     font-weight: 600;
     box-shadow: 0px 0px 5px 5px var(--shadowsColor);
 
@@ -53,7 +58,7 @@ body{
     background-color: var(--bgColor);
 
     .title{
-        color: var(--notifPanelColorLetter);
+        color: var(--yellow);
         margin: 20px;
     }
 }
@@ -87,7 +92,7 @@ body{
         align-items: center;
         justify-content: space-between;
         div{display: flex;}
-        color: var(--notifPanelColorLetter);
+        color: var(--yellow);
         
 
         .closeButton{
@@ -133,8 +138,8 @@ body{
     border-radius: 10px;
     box-shadow: 5px 5px 5px 5px var(--shadowsColor);
     border-width: 2px;
-        border-style: solid;
-        border-color: var(--bordersColor);
+    border-style: solid;
+    border-color: var(--bordersColor);
 
     div{
         display: flex;
@@ -161,7 +166,7 @@ body{
         Button{
             width: 60px;
             padding: 0px 2px;
-            color: var(--notifPanelColorLetter);
+            color: var(--yellow);
             box-shadow: 0px 0px 3px 3px var(--shadowsColor);
             font-size: 12px;
             
