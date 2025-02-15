@@ -1,4 +1,4 @@
-import { Button, Upload, Select } from "antd";
+import { Button, Upload, Input } from "antd";
 import type { UploadProps } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons"
 import { buttonPanelIconStyle } from "../AntDIconStyles.js"
@@ -27,17 +27,21 @@ export const UploadContractModal: React.FC<uploadContractModal> = ({client, onCa
                 >
                     <h1>Jesus Lozano</h1>
                     <div className="Buttons">
-                        <Button className="Button">Boton 1</Button>
-                        <Button className="Button">Boton 1</Button>
-                        <Button className="Button">Boton 1</Button>
+                        <Button className="Button">Guardar</Button>
+                        <Button className="Button">Imprimir</Button>
+                        <Button className="Button">Recibos</Button>
                     </div>
                     <div className="form">
-                        <Select />
-                        <Select />
-                        <Select />
+                        <Input className="in" placeholder="Cedula" />
+                        <div>
+                            <Input className="in" placeholder="Nombre Completo" />
+                            <Input className="in" placeholder="Numero de contrato" />
+                            <Input className="in" placeholder="Tipo de contrato" />
+                            <Input className="in" placeholder="Status" />
+                        </div>
                     </div>
-                    <Dragger>
-                        <PlusCircleOutlined style={buttonPanelIconStyle} />
+                    <Dragger className="dragger">
+                        <PlusCircleOutlined style={{color: "#e7e14f", fontSize: "40px"}} />
                     </Dragger>
                     <Button className="Button">Guardar</Button>
                 </motion.div>

@@ -36,6 +36,7 @@ body{
 
 @mixin Button{
     color: white;
+    border: 0;
     background-color: var(--darkGreen);
     font-weight: 600;
     box-shadow: 0px 0px 5px 5px var(--shadowsColor);
@@ -372,6 +373,10 @@ body{
             background-color: var(--searchBarColor);
             color: white;
         }
+        .filterButton{
+            @include Button;
+            background-color: var(--searchBarColor);
+        }
         .inputSearchBar::placeholder{
             color: var(--placeholderColor);
         }
@@ -452,7 +457,7 @@ body{
                     justify-content: space-between;
                     
                     .subServerIcon{
-                        background-color: var(--newColor);
+                        background-color: var(--darkGreen);
                         position: relative;
                         bottom: 12px;
                         right: 12px;
@@ -993,8 +998,33 @@ body{
         border-radius: 15px;
         padding: 25px;
 
-        h1{color: var(--highlightColor);}
-        .Buttons{display: flex; flex-direction: row; align-items: center; gap: 10px}
+        h1{color: var(--yellow);}
+        .Buttons{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            align-self: start;
+        }
         .Button{@include Button;}
+
+        .form{
+            width: 85%;
+            div{
+                margin: 10px 0px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                
+
+                .in{
+                    background-color: rgb(21, 20, 31);
+                }
+            }
+        }
+
+        .dragger{
+            width: 85%;
+        }
     }
 }

@@ -13,7 +13,7 @@ const SubServerSearch: React.FC = () => {
 
     // console.log(subServers)
     const slideStyle = {
-        color: '#587099',
+        color: '#e7e14f',
         fontSize: '20px',
     }
     const exportStyle = {
@@ -24,7 +24,7 @@ const SubServerSearch: React.FC = () => {
 
     return(
         <div className='SubServerSearch'>
-            <h1 className='title'>Clientes</h1>
+            <h1 className='title'>Archivo Digital</h1>
             {showList.length == 0 ? (
                 <>    
                     <Skeleton active/>
@@ -34,7 +34,7 @@ const SubServerSearch: React.FC = () => {
                 <>
                     <div className="searchBar">
                         <Input className='inputSearchBar' variant='filled' placeholder="Buscar..." />
-                        <SlidersOutlined style={slideStyle}/>
+                        <Button icon={<SlidersOutlined style={slideStyle}/>} className="filterButton"/>
                         {/* <Button className='buttonExport' type="text"> <ExportOutlined style={exportStyle}/> </Button> */}
                     </div>
 
@@ -54,7 +54,7 @@ const SubServerSearch: React.FC = () => {
                             { showList.map((item) => (
                                 <div key={item.id} className="ListItem" onClick={() => setUploadContractModal(true)}>
                                     <div className="banner">
-                                        <div className="subServerIcon"><AppstoreAddOutlined style={{color:'#e95cff', fontSize:'45px'}}/></div>
+                                        <div className="subServerIcon"><AppstoreAddOutlined style={{color:'#96ac60', fontSize:'45px'}}/></div>
                                         <div><DoubleRightOutlined rotate={315}/></div>
                                     </div>
                                     <div className='Info'>
