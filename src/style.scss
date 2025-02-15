@@ -102,6 +102,12 @@ body{
             }
         }
     }
+
+    img{
+        width: 60%;
+        align-self: center;
+        justify-self: center;
+    }
 }
 
 .root{
@@ -146,6 +152,11 @@ body{
         flex-direction: row;
         align-items: center;
         gap: 15px;
+    }
+
+    img{
+        width: 45px;
+        justify-self: center;
     }
 }
 

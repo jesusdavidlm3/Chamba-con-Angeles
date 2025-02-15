@@ -6,6 +6,7 @@ import ConfigPanel from './ConfigPanel'
 import { navBarIconStyle } from '../AntDIconStyles'
 import { Modal, Tooltip } from 'antd'
 import { appContext } from '../context/appContext'
+import logo2 from '../img/logo2.png'
 // import { logOut } from '../client/ClientePrueba'
 
 const NavBar = () => {
@@ -45,6 +46,9 @@ const NavBar = () => {
         <>
             <div className="NavBar">
                 <UserOutlined onClick={() => navigate('/Profile')} style={navBarIconStyle}/>
+
+                <img src={logo2} />
+
                 <div>
                     <Tooltip title='Configuracion'>
                         <SettingOutlined onClick={openConfig} style={navBarIconStyle}/>

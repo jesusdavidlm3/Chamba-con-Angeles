@@ -2,6 +2,7 @@ import { UserOutlined, MobileOutlined, AppstoreAddOutlined, SettingOutlined, Clo
 import { useNavigate } from "react-router-dom"
 import { barPanelIconStyles, buttonPanelIconStyle } from '../AntDIconStyles'
 import { motion, AnimatePresence } from 'motion/react'
+import logo1 from '../img/logo1.png'
 
 interface Panel{
     close: () => void,
@@ -66,6 +67,7 @@ const ConfigPanel: React.FC<Panel> = ({close, open}) => {
                         </div>
                     </div>
                 </div>
+                <img src={logo1} />
             </div>
         </motion.div>}
         </AnimatePresence>
